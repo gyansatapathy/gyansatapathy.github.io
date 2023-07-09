@@ -1,1 +1,35 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Google Drive Link Generator</title>
+</head>
+<body>
+<h1>Google Drive Link Generator</h1>
+<form>
+    <label for="inputString">Enter Google drive url</label>
+    <input type="text" id="inputString" name="inputString" required>
+    <button type="button" onclick="generateString()">Generate</button>
+</form>
+
+<!--<h3 id="generated-url">Url Generated</h3>-->
+<script>
+    document.getElementById("generated-url").classList.add("hidden");
+
+    function generateString() {
+        document.getElementById("generated-url").classList.add("hidden");
+        var inputElement = document.getElementById("inputString");
+        var inputString = inputElement.value;
+
+        var generatedUrl = `https://www.googleapis.com/drive/v3/files/${inputString.split("/")[5]}?alt=media&key=AIzaSyC3GeRkhjygjfvihf0sG5c3bp8ohsJAgRM`;
+        navigator.clipboard.writeText(generatedUrl)
+            .then(function () {
+                document.getElementById("generated-url").classList.remove("hidden");
+                alert("Url copied to clipboard!");
+            })
+            .catch(function (error) {
+                alert("Error copying url to clipboard: " + error);
+            });
+    }
+</script>
+</body>
+</html>
