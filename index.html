@@ -13,17 +13,17 @@
 
 <!--<h3 id="generated-url">Url Generated</h3>-->
 <script>
-    document.getElementById("generated-url").classList.add("hidden");
+    // document.getElementById("generated-url").classList.add("hidden");
 
     function generateString() {
-        document.getElementById("generated-url").classList.add("hidden");
+        // document.getElementById("generated-url").classList.add("hidden");
         var inputElement = document.getElementById("inputString");
         var inputString = inputElement.value;
 
         var generatedUrl = `https://www.googleapis.com/drive/v3/files/${inputString.split("/")[5]}?alt=media&key=AIzaSyC3GeRkhjygjfvihf0sG5c3bp8ohsJAgRM`;
         navigator.clipboard.writeText(generatedUrl)
             .then(function () {
-                document.getElementById("generated-url").classList.remove("hidden");
+                // document.getElementById("generated-url").classList.remove("hidden");
                 alert("Url copied to clipboard!");
             })
             .catch(function (error) {
