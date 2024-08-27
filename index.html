@@ -1,37 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Google Drive Link Generator</title>
+  <title>Google Drive Link Generator</title>
+  <style>
+    /* Dark theme styles */
+    body {
+      background-color: #222;
+      color: #ddd;
+      font-family: sans-serif; /* A generic sans-serif font */
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 1.5em;
+    }
+
+    label {
+      color: #ddd;
+    }
+
+    input[type="text"] {
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      border: 1px solid #555;
+      border-radius: 3px;
+    }
+
+    button {
+      background-color: #4CAF50; /* Green for the button */
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-<h1>Google Drive Link Generator</h1>
-<form>
-    <label for="inputString">Enter Google drive url</label>
+  <h1>Google Drive Link Generator</h1>
+  <form>
+    <label for="inputString">Enter Medium.com url to unlock premium content</label>
     <input type="text" id="inputString" name="inputString" required>
     <button type="button" onclick="generateString()">Generate</button>
-</form>
+  </form>
 
-<!--<h3 id="generated-url">Url Generated</h3>-->
-<script>
+  <script>
     // document.getElementById("generated-url").classList.add("hidden");
 
     function generateString() {
-        // document.getElementById("generated-url").classList.add("hidden");
-        var inputElement = document.getElementById("inputString");
-        var inputString = inputElement.value;
-        var mediumPart = inputString.substring(inputString.lastIndexOf('/') + 1);
+      var inputElement = document.getElementById("inputString");
+      var inputString = inputElement.value;
+      var mediumPart = inputString.substring(inputString.lastIndexOf('/') + 1);
 
-        var generatedUrl = `https://readmedium.com/en/${mediumPart}`;
-        // navigator.clipboard.writeText(generatedUrl)
-        //     .then(function () {
-        //         // document.getElementById("generated-url").classList.remove("hidden");
-        //         alert("Url copied to clipboard!");
-        //     })
-        //     .catch(function (error) {
-        //         alert("Error copying url to clipboard: " + error);
-        //     });
-        window.open(generatedUrl, '_blank');
+      var generatedUrl = `https://readmedium.com/en/${mediumPart}`;
+      window.open(generatedUrl, '_blank');
     }
-</script>
+  </script>
 </body>
 </html>
