@@ -19,16 +19,18 @@
         // document.getElementById("generated-url").classList.add("hidden");
         var inputElement = document.getElementById("inputString");
         var inputString = inputElement.value;
+        var mediumPart = inputString.substring(inputString.lastIndexOf('/') + 1);
 
-        var generatedUrl = `https://www.googleapis.com/drive/v3/files/${inputString.split("/")[5]}?alt=media&key=AIzaSyC3GeRkhjygjfvihf0sG5c3bp8ohsJAgRM`;
-        navigator.clipboard.writeText(generatedUrl)
-            .then(function () {
-                // document.getElementById("generated-url").classList.remove("hidden");
-                alert("Url copied to clipboard!");
-            })
-            .catch(function (error) {
-                alert("Error copying url to clipboard: " + error);
-            });
+        var generatedUrl = `https://readmedium.com/en/${mediumPart}`;
+        // navigator.clipboard.writeText(generatedUrl)
+        //     .then(function () {
+        //         // document.getElementById("generated-url").classList.remove("hidden");
+        //         alert("Url copied to clipboard!");
+        //     })
+        //     .catch(function (error) {
+        //         alert("Error copying url to clipboard: " + error);
+        //     });
+        window.open(generatedUrl, '_blank');
     }
 </script>
 </body>
